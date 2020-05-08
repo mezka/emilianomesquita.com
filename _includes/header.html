@@ -1,0 +1,9 @@
+<header>
+    <div class="container">
+        <div class="intro-text">
+            <div class="intro-heading">{{ site.author_name | append: ' ' |  append: site.author_surname }}</div>
+            <div class="intro-lead-in">{{ site.data.translations.jobTitle[page.lang] }}</div>
+        </div>
+        <div class="intro-language"><a href="{{ site.data.translations.header.link[page.lang] }}">{{ site.data.translations.header.differentLanguage[page.lang]}}</a></div>
+    </div>
+  </header>

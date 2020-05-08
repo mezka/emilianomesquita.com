@@ -1,0 +1,46 @@
+author_name: Emiliano
+author_surname: Mesquita
+email: emiliano_mesquita@hotmail.com
+description: Desarrollador web en Buenos Aires, Argentina.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://emilianomesquita.com" # the base hostname & protocol for your site, e.g. http://example.com
+linkedin_username: emiliano-mesquita
+github_username:  mezka
+occupation:
+  en: Web Developer
+  es: Desarrollador Web
+curriculum_vitae:
+  en: https://1drv.ms/b/s!Arz535PAeGSPjE1_j0XTuKCdV7eJ?e=jYcKfp
+  es: https://1drv.ms/b/s!Arz535PAeGSPjExP_vPDyisKPxgb?e=gWVBUR
+skills:
+  frontend: ["AngularJS", "React", "Less/Sass", "Gulp/Webpack"]
+  backend: ["Linux & SSH", "NodeJS", "Python", "SQL"]
+languages: ["es", "en"]
+default_lang: "es"
+exclude_from_localization: ["js", "img", "css", "favicon.ico"]
+parallel_localization: true
+collections:
+  - portfolios
+sass:
+  sourcemap: never #Workaround needed to prevent polyglot plugin from breaking css
+
+
+# Exclude from processing.
+# The following items will not be processed, by default.
+# Any item listed under the `exclude:` key here will be automatically added to
+# the internal "default list".
+#
+# Excluded items can be processed by explicitly listing the directories or
+# their entries' file path in the `include:` list.
+#
+# exclude:
+#   - .sass-cache/
+#   - .jekyll-cache/
+#   - gemfiles/
+#   - Gemfile
+#   - Gemfile.lock
+#   - node_modules/
+#   - vendor/bundle/
+#   - vendor/cache/
+#   - vendor/gems/
+#   - vendor/ruby/

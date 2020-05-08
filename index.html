@@ -1,0 +1,40 @@
+---
+permalink: index
+layout: page
+lang: es
+---
+
+{% include header.html %}
+{% include introduction.html %}
+
+{% assign portfolios_filtered_by_lang = site.portfolios | where: "lang", page.lang %}
+
+<section id="portfolio">
+  <div class="container">
+    <div class="row">
+      {% for portfolio in portfolios_filtered_by_lang %}
+          <div class="col-md-4 col-sm-6 portfolio-item">
+              <a href="#{{ portfolio.elementid }}" class="portfolio-link" data-toggle="modal">
+                  <div class="portfolio-hover">
+                      <div class="portfolio-hover-content">
+                          <i class="fa fa-plus fa-3x"></i>
+                      </div>
+                  </div>
+                  <img src="{{site.baseurl}}{{portfolio.image_thumbnail}}" class="img-responsive" alt="">
+              </a>
+              <div class="portfolio-caption">
+                  <h4>{{portfolio.title}}</h4>
+                  <p class="text-muted">{{portfolio.subtitle}}</p>
+              </div>
+          </div>
+      {% endfor %}
+    </div>
+  </div>
+</section> 
+
+{% for portfolio in portfolios_filtered_by_lang %}
+  {{portfolio}}
+{% endfor %}
+
+{% include skills.html %}
+{% include contact.html %}

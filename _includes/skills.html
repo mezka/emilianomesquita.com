@@ -1,0 +1,45 @@
+<section id="skills" class="bg-light-gray">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading">{{ site.data.translations.skills.heading[page.lang] }}</h2>
+                <h3 class="section-subheading text-muted">{{ site.data.translations.subheading[page.lang] }}</h3>
+            </div>
+        </div>
+        <div class="row text-center">
+            <div class="col-md-5">
+                <span class="fa-stack fa-4x">
+                    <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                    <i class="fa fa-database fa-stack-1x fa-inverse"></i>
+                </span>
+                <h4 class="skill-heading">{{ site.data.translations.skills.backendTitle[page.lang] }}</h4>
+
+                <p class="text-muted project-text">
+                    {{ site.data.translations.skills.backendText[page.lang] }}
+                </p>
+
+                <ul class="fa-ul skills-list">
+                    {% for skill in site.skills.backend %}
+                    <li><i class="fa-li fa fa-code"></i>{{ skill }}</li>
+                    {%- endfor -%}
+                </ul>
+            </div>
+            <div class="col-md-offset-2 col-md-5">
+                <span class="fa-stack fa-4x">
+                    <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                    <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
+                </span>
+                <h4 class="skill-heading small-margin">{{ site.data.translations.skills.frontendTitle[page.lang] }}</h4>
+                <p class="text-muted project-text small-margin">
+                    {{ site.data.translations.skills.frontendText[page.lang] }}
+                </p>
+
+                <ul class="fa-ul skills-list">
+                    {% for skill in site.skills.frontend %}
+                    <li><i class="fa-li fa fa-code"></i>{{ skill }}</li>
+                    {%- endfor -%}
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>

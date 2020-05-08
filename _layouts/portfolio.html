@@ -1,0 +1,55 @@
+<div class="portfolio-modal modal fade" id="{{ page.elementid }}" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2 class="project-heading">{{page.title}}</h2>
+                            <p class="item-intro text-muted">{{page.subtitle}}
+                            </p>
+                            <a href="{{ page.link }}" target="_blank"><img class="img-responsive img-centered" src="{{ page.image_url }}" alt=""></a>
+
+                            <p class="item-intro text-muted">
+                                {{page.image_caption}}
+                            </p>
+
+                            <p class="project-text">
+                                {{page.content}}
+                            </p>
+
+                            <p class="smaller-margin"><a href="{{ page.link }}" target="_blank">{{ site.data.translations.portfolioShowcase.visitTheSite[page.lang] }}</a></p>
+
+                            <ul class="list-inline">
+                                <li>Date: {{page.date | date: "%B, %Y" }}</li>
+                                <li>Stack: {{page.stack | map: "name" | join: ", "  | append: "." }}</li>
+                                <li>Tools: {{page.tools | map: "name" | join: ", "  | append: "." }}</li>
+                            </ul>
+                            {% assign icons = page.stack | concat: page.tools | where: "show", true %}
+                            <div class="row">
+                            {%- for tech in icons -%}
+                            <div class="col-xs-6 col-sm-3">
+                                <img class="img-responsive" src="{{ site.baseurl | append: tech.logo }}" alt="">
+                            </div>
+                            {%- assign clearfix = forloop.index | modulo: 3 -%}
+                            {% if clearfix == 0 %}
+                                <div class="clearfix visible-xs-block"></div>
+                            {% endif %}
+                            {%- endfor -%}
+                            </div>
+
+                            <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> {{ site.data.translations.portfolioShowcase.closeProject[page.lang] }}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

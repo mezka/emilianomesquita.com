@@ -1,0 +1,98 @@
+navbar:
+  skillsLink:
+    en: SKILLS
+    es: COMPETENCIAS
+  contactLink:
+    en: CONTACT
+    es: CONTACTO
+header:
+  differentLanguage:
+    en: "Leer en Español"
+    es: "Read in English"
+  link:
+    en: "../index"
+    es: "en/index"
+introduction:
+  coverLetter:
+    en: "As a developer I strive to expand my knowledge and expertise in order to be able to tackle bigger and bigger projects. I have strong Javascript skills and have worked as full-stack developer and Software Architect on big projects using AngularJS and ReactJS, the ExpressJS middleware framework, and PostgreSQL as the database engine. I enjoy the process of database and application design and modelling, and deeply embrace the concept of being a full-stack developer and being competent in all the technologies involved into making a complex Web Application. Also even though I think of myself as a developer first and foremost, because of my Systems Administration background and preference of GNU/Linux as my daily driver, I have experience deploying websites and managing remote Linux instances."
+    es: "Como desarrollador me esfuerzo para ampliar mis conocimientos y experiencia para poder afrontar proyectos cada vez más grandes. Cuento con una fuerte competencia en Javascript y trabajé como desarrollador full-stack y arquitecto de software en proyectos grandes usando AngularJS y ReactJS, el framework middleware ExpressJS, y PostgreSQL como motor de base de datos. Disfruto el proceso de diseño de aplicacion y de bases de datos, y acojo el concepto de lo que significa ser un desarrollador full-stack y la necesidad de ser competente en todas las tecnologías utilizadas para hacer aplicaciones web complejas. También, aunque me considero principalmente un desarrollador, debido a mi historia como administrador de sistemas y sentida preferencia por GNU/Linux como sistema operativo diario y para entornos de producción; tengo experiencia hosteando sitios web en servidores remotos usando GNU/Linux."
+  leadingText:
+    en: "WHAT'S MOST IMPORTANT TO YOU?"
+    es: "QUE ES LO MÁS IMPORTANTE PARA VOS?"
+  leadingSubText:
+    en: "For me, it's using technology to improve my immediate community."
+    es: "Para mi, es usar la tecnolog&iacute;a para mejorar mi comunidad inmediata."
+  downloadCvPrompt:
+    firstPart:
+      es: "Clic"
+      en: "Click"
+    secondPart:
+      es: "acá"
+      en: "here"
+    thirdPart:
+      es: "para descargar mi CV."
+      en: "to download my CV."
+skills:
+  heading:
+    en: "SKILLS"
+    es: "COMPETENCIAS"
+  subheading:
+    en: "I'm a Full-Stack developer"
+    es: "Soy un desarrollador Full-Stack"
+  backendTitle:
+    en: "Backend development"
+    es: "Desarrollo Backend"
+  backendText:
+    en: "I can model a complete web application from user requirements, design the database schema, and write the necessary queries and middleware code to build a professional web application with user authentication, and authorization."
+    es: "Puedo modelar una aplicación web completa a partir de los requerimientos del usuario, diseñar el esquema de la base de datos y escribir las consultas necesarias junto con el código middleware para crear una aplicación web profesional con autenticación y autorización de usuarios."
+  frontendTitle:
+    en: "Frontend Development"
+    es: "Desarrollo Frontend"
+  frontendText:
+    en: "I can build websites full of functionality using modern development libraries and frameworks. I pick up new technologies quickly and am very good at self learning."
+    es: "Puedo desarrollar websites llenos de funcionalidad usando librerias y frameworks modernos. Aprendo nuevas tecnologías rapidamente y soy muy bueno aprendiendo por mi cuenta."
+contactForm:
+  emailPrompt:
+    en: "Or send him an email to"
+    es: "O mándale un email a"
+  contactTitle:
+    en: "Contact "
+    es: "Contacta a "
+  namePlaceholder:
+    en: "Your name *"
+    es: "Tu nombre *"
+  nameRequired:
+    en: "Please, enter your name."
+    es: "Por favor, ingresa tu nombre."
+  emailPlaceholder:
+    en: "Your email *"
+    es: "Tu email *"
+  emailRequired:
+    en: "Please, enter your email address."
+    es: "Por favor, ingresa tu direccion de email."
+  phonePlaceholder:
+    en: "Your phone *"
+    es: "Tu telefono *"
+  phoneRequired:
+    en: "Please, enter your phone."
+    es: "Por favor, ingresa tu telefono."
+  messagePlaceholder:
+    en: "Your message *"
+    es: "Tu mensaje *"
+  messageRequired:
+    en: "Please, enter a message"
+    en: "Porfavor, ingresa un mensaje"
+  sendMessage:
+    en: "Send Message"
+    es: "Enviar Mensaje"
+portfolioShowcase:
+  closeProject:
+    en: "Close project"
+    es: "Cerrar proyecto"
+  visitTheSite:
+    en: "Visit the site"
+    es: "Visitá el sitio"
+footer:
+  thanksForVisiting:
+    en: "Thanks for visiting!"
+    es: "Gracias por visitar!"
