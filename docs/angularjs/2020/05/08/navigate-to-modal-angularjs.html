@@ -136,7 +136,7 @@
 
 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">state</span><span class="p">.</span><span class="nx">go</span><span class="p">(</span><span class="dl">'</span><span class="s1">usercp</span><span class="dl">'</span><span class="p">,</span> <span class="p">{</span> <span class="na">modal</span><span class="p">:</span> <span class="kc">true</span> <span class="p">});</span></code></pre></figure>
 
-<p>All in all this is a hack but it works perfectly, although I while writing this I realized that there’s another “endorsed” way to achieve the same thing:</p>
+<p>This is a hack but it works perfectly, although I while writing this I realized that there’s another “endorsed” way to achieve the same thing:</p>
 
 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">modalRunBlock</span><span class="p">.</span><span class="nx">$inject</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">$transitions</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">$rootScope</span><span class="dl">'</span><span class="p">];</span>
 
@@ -162,7 +162,7 @@
 
 <p>I think this would be “cannon” way of achieving this mainly because it at least is hooking to the last transition hook that is activated, eventhough we still need the <code class="highlighter-rouge">setTimeout</code> because the <code class="highlighter-rouge">exampleModal</code> directive and the <code class="highlighter-rouge">scope.$on('toggleModal')</code> event listener have not loaded yet.</p>
 
-<p>All in all I like my solution and will keep it as is, hope this gets indexed by search engines and it helps someone.</p>
+<p>All in all like my solution and will keep it as is, hope this gets indexed by search engines and it helps someone.</p>
 
             </p>
             <hr>
