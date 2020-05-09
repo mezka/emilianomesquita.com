@@ -1,3 +1,4 @@
+destination: docs
 author:
   name: Emiliano
   surname: Mesquita
@@ -24,6 +25,8 @@ collections:
   - portfolios
 sass:
   sourcemap: never #Workaround needed to prevent polyglot plugin from breaking css
+exclude:
+  - docs
 
 # Exclude from processing.
 # The following items will not be processed, by default.

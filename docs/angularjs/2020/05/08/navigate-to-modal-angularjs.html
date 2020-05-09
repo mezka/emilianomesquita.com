@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Desarrollador web en Buenos Aires, Argentina.">
+    <meta name="author" content="Emiliano Mesquita">
+
+    <title>Emiliano Mesquita</title>
+
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"  rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,400i|Limelight|Montserrat:400,700|Roboto+Slab" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- Theme CSS -->
+    <link href="/css/styles.css" rel="stylesheet">
+</head>
+
+    <body id="page-top" class="index">
+        <nav id="internationalNav" class="navbar navbar-default navbar-custom navbar-fixed-top affix">
+    <div class="container">
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+            </button>
+            <a class="navbar-brand page-scroll" href="/">Emiliano Mesquita</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a class="page-scroll" href="/blog">Blog</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href=" /#resume">Curriculum Vitae</a>
+                </li>
+                <li class="hidden">
+                    <a href="#page-top"></a>
+                </li>
+                <li>
+                    <a class="page-scroll" href=" /#portfolio">Portfolio</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href=" /#skills">SKILLS</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href=" /#contact">CONTACT</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<header class="header-background-computer" style="min-height: 720px;">
+    <div class="container">
+        <div class="intro-text">
+            <h1 class="intro-heading">BLOG</h1>
+        </div>
+    </div>
+</header>
+
+<div class="bg-light-gray">
+    <div class="container">
+        <div class="blog-post bg-warning" style="padding: 20px 75px; margin: 50px 0px;">
+            <h2 class="blog-post-title">
+                Navigate to a modal in AngularJS (with ui-router)
+            </h2>
+            <p class="blog-post-meta">
+                05/08/20 by Emiliano Mesquita
+            </p>
+            <hr>
+            <p>
+                <p>A while ago I found myself wanting to use <code class="highlighter-rouge">ui-router</code> to navigate to another view and open a modal, I enclosed this modal in the other view  within a directive element, whose content was shown or hidden through a <code class="highlighter-rouge">toggleModal</code> event.</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="dl">'</span><span class="s1">app</span><span class="dl">'</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">directive</span><span class="p">(</span><span class="dl">'</span><span class="s1">exampleModal</span><span class="dl">'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="na">restrict</span><span class="p">:</span> <span class="dl">'</span><span class="s1">E</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">replace</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="na">template</span><span class="p">:</span> <span class="s2">` &lt;div class="modal" tabindex="-1" role="dialog"&gt;
+                        &lt;div class="modal-dialog modal-dialog-centered" role="document"&gt;
+                            &lt;div class="modal-content"&gt;
+                            &lt;div class="modal-header"&gt;
+                                &lt;h5 class="modal-title"&gt;Add new address&lt;/h5&gt;
+                                &lt;button type="button" class="close" data-dismiss="modal" aria-label="Close"&gt;
+                                &lt;span aria-hidden="true"&gt;&amp;times;&lt;/span&gt;
+                                &lt;/button&gt;
+                            &lt;/div&gt;
+                            &lt;div class="modal-body"&gt;
+                                &lt;p&gt;Hello&lt;/p&gt;
+                            &lt;/div&gt;
+                            &lt;div class="modal-footer"&gt;
+                                &lt;button type="button" class="btn btn-secondary" data-dismiss="modal"&gt;Close&lt;/button&gt;
+                            &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt; `</span><span class="p">,</span>
+
+        <span class="na">link</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">scope</span><span class="p">,</span> <span class="nx">element</span><span class="p">){</span>
+
+            <span class="nx">scope</span><span class="p">.</span><span class="nx">$on</span><span class="p">(</span><span class="dl">'</span><span class="s1">toggleModal</span><span class="dl">'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
+                <span class="nx">element</span><span class="p">.</span><span class="nx">modal</span><span class="p">()</span>
+            <span class="p">});</span>
+            
+            <span class="nx">scope</span><span class="p">.</span><span class="nx">toggle</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+                <span class="nx">element</span><span class="p">.</span><span class="nx">modal</span><span class="p">(</span><span class="dl">'</span><span class="s1">toggle</span><span class="dl">'</span><span class="p">)</span>
+            <span class="p">};</span>
+        <span class="p">},</span>
+    <span class="p">}</span>
+<span class="p">});</span></code></pre></figure>
+
+<p>At the time glossing over the state-level hooks, which only provided the hooks <code class="highlighter-rouge">onEnter</code>, <code class="highlighter-rouge">onExit</code>, and <code class="highlighter-rouge">onRetain</code>, I came up with this hack:</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">const</span> <span class="nx">userControlPanelState</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">usercp</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">url</span><span class="p">:</span> <span class="dl">'</span><span class="s1">/user/cp</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">templateUrl</span><span class="p">:</span> <span class="dl">'</span><span class="s1">/views/usercp/usercp.html</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">controller</span><span class="p">:</span> <span class="dl">'</span><span class="s1">userControlPanelController as userCP</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">data</span><span class="p">:</span> <span class="p">{</span> <span class="na">requiresAuth</span><span class="p">:</span> <span class="kc">true</span> <span class="p">},</span>
+    <span class="na">params</span><span class="p">:</span> <span class="p">{</span> <span class="na">modal</span><span class="p">:</span> <span class="kc">false</span><span class="p">},</span>
+    <span class="na">onEnter</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$rootScope</span><span class="p">,</span> <span class="nx">$stateParams</span><span class="p">){</span>
+        <span class="k">if</span><span class="p">(</span><span class="nx">$stateParams</span><span class="p">.</span><span class="nx">modal</span><span class="p">){</span>
+            <span class="nx">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">$rootScope</span><span class="p">.</span><span class="nx">$broadcast</span><span class="p">(</span><span class="dl">'</span><span class="s1">toggleModal</span><span class="dl">'</span><span class="p">)</span> <span class="p">},</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">};</span></code></pre></figure>
+
+<p>The idea is that I’m hooking to the <code class="highlighter-rouge">onEnter</code>, if the modal parameter is set to true I will broadcast a <code class="highlighter-rouge">toggleModal</code> event which the <code class="highlighter-rouge">exampleModal</code> directive will listen on and show the modal.</p>
+
+<p>There are some caveats to this approach, if I call <code class="highlighter-rouge">$rootScope.$broadcast</code> here the state transition wouldn’t be finished here and it wouldn’t work because the directive wouldn’t be rendered yet, so I call <code class="highlighter-rouge">setTimeout</code> in order to broadcast the event once the stack is empty and all transition code is done with.</p>
+
+<p>Programatically navigating to the modal from another controller or service would look like this:</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">state</span><span class="p">.</span><span class="nx">go</span><span class="p">(</span><span class="dl">'</span><span class="s1">usercp</span><span class="dl">'</span><span class="p">,</span> <span class="p">{</span> <span class="na">modal</span><span class="p">:</span> <span class="kc">true</span> <span class="p">});</span></code></pre></figure>
+
+<p>All in all this is a hack but it works perfectly, although I while writing this I realized that there’s another “endorsed” way to achieve the same thing:</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">modalRunBlock</span><span class="p">.</span><span class="nx">$inject</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">$transitions</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">$rootScope</span><span class="dl">'</span><span class="p">];</span>
+
+<span class="kd">function</span> <span class="nx">modalRunBlock</span><span class="p">(</span><span class="nx">transitionService</span><span class="p">,</span> <span class="nx">$rootScope</span><span class="p">)</span> <span class="p">{</span>
+
+  <span class="kd">const</span> <span class="nx">shouldRunTransitionCallbackCriteria</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">to</span><span class="p">:</span> <span class="p">(</span><span class="nx">state</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">state</span><span class="p">.</span><span class="nx">name</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">usercp</span><span class="dl">'</span><span class="p">;</span>
+      <span class="p">}</span>
+  <span class="p">};</span>
+
+  <span class="kd">function</span> <span class="nx">showModal</span><span class="p">(</span><span class="nx">transition</span><span class="p">){</span>
+      <span class="k">if</span><span class="p">(</span><span class="nx">transition</span><span class="p">.</span><span class="nx">params</span><span class="p">().</span><span class="nx">modal</span><span class="p">){</span>
+        <span class="nx">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="k">this</span><span class="p">.</span><span class="nx">$broadcast</span><span class="p">(</span><span class="dl">'</span><span class="s1">toggleModal</span><span class="dl">'</span><span class="p">)</span> <span class="p">},</span> <span class="mi">0</span><span class="p">);</span>
+      <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="c1">// Register the "showModal" hook with the TransitionService</span>
+  <span class="nx">transitionService</span><span class="p">.</span><span class="nx">onSuccess</span><span class="p">(</span><span class="nx">shouldRunTransitionCallbackCriteria</span><span class="p">,</span> <span class="nx">showModal</span><span class="p">,</span> <span class="p">{</span> <span class="na">priority</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="na">bind</span><span class="p">:</span> <span class="nx">$rootScope</span> <span class="p">});</span>
+<span class="p">}</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">run</span><span class="p">(</span><span class="nx">modalRunBlock</span><span class="p">);</span></code></pre></figure>
+
+<p>I think this would be “cannon” way of achieving this mainly because it at least is hooking to the last transition hook that is activated, eventhough we still need the <code class="highlighter-rouge">setTimeout</code> because the <code class="highlighter-rouge">exampleModal</code> directive and the <code class="highlighter-rouge">scope.$on('toggleModal')</code> event listener have not loaded yet.</p>
+
+<p>All in all I like my solution and will keep it as is, hope this gets indexed by search engines and it helps someone.</p>
+
+            </p>
+            <hr>
+            <a class="go-back-link" href="/blog">Go back</a>
+        </div>
+    </div>
+</div>
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+            </div>
+            <div class="col-md-4">
+                <ul class="list-inline social-buttons">
+                    <li><a href="https://www.linkedin.com/in/emiliano-mesquita/" target="_blank"><i class="fa fa-linkedin"></i></a>
+                    </li>
+                    <li><a href="https://github.com/mezka" target="_blank"><i class="fa fa-github-alt"></i></a>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <span class="thanks">Thanks for visiting!</span>
+            </div>
+        </div>
+    </div>
+</footer>
+
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+<script src="/js/user.js"></script>
+    </body> 
+</html>
