@@ -77,56 +77,58 @@
                     <p>A while ago I found myself wanting to use <code class="highlighter-rouge">ui-router</code> to navigate to another view and open a modal, I enclosed this modal in the other view  within a directive element, whose content was shown or hidden through a <code class="highlighter-rouge">toggleModal</code> event.</p>
 
 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="dl">'</span><span class="s1">app</span><span class="dl">'</span><span class="p">)</span>
-    <span class="p">.</span><span class="nx">directive</span><span class="p">(</span><span class="dl">'</span><span class="s1">exampleModal</span><span class="dl">'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="p">.</span><span class="nx">directive</span><span class="p">(</span><span class="dl">'</span><span class="s1">exampleModal</span><span class="dl">'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
     <span class="k">return</span> <span class="p">{</span>
-        <span class="na">restrict</span><span class="p">:</span> <span class="dl">'</span><span class="s1">E</span><span class="dl">'</span><span class="p">,</span>
-        <span class="na">replace</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-        <span class="na">template</span><span class="p">:</span> <span class="s2">` &lt;div class="modal" tabindex="-1" role="dialog"&gt;
-                        &lt;div class="modal-dialog modal-dialog-centered" role="document"&gt;
-                            &lt;div class="modal-content"&gt;
-                            &lt;div class="modal-header"&gt;
-                                &lt;h5 class="modal-title"&gt;Add new address&lt;/h5&gt;
-                                &lt;button type="button" class="close" data-dismiss="modal" aria-label="Close"&gt;
-                                &lt;span aria-hidden="true"&gt;&amp;times;&lt;/span&gt;
-                                &lt;/button&gt;
-                            &lt;/div&gt;
-                            &lt;div class="modal-body"&gt;
-                                &lt;p&gt;Hello&lt;/p&gt;
-                            &lt;/div&gt;
-                            &lt;div class="modal-footer"&gt;
-                                &lt;button type="button" class="btn btn-secondary" data-dismiss="modal"&gt;Close&lt;/button&gt;
-                            &lt;/div&gt;
-                            &lt;/div&gt;
-                        &lt;/div&gt;
-                    &lt;/div&gt; `</span><span class="p">,</span>
+      <span class="na">restrict</span><span class="p">:</span> <span class="dl">'</span><span class="s1">E</span><span class="dl">'</span><span class="p">,</span>
+      <span class="na">replace</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="na">template</span><span class="p">:</span> <span class="s2">`  
+        &lt;div class="modal" tabindex="-1" role="dialog"&gt;
+            &lt;div class="modal-dialog modal-dialog-centered" role="document"&gt;
+                &lt;div class="modal-content"&gt;
+                &lt;div class="modal-header"&gt;
+                    &lt;h5 class="modal-title"&gt;Add new address&lt;/h5&gt;
+                    &lt;button type="button" class="close" data-dismiss="modal" aria-label="Close"&gt;
+                    &lt;span aria-hidden="true"&gt;&amp;times;&lt;/span&gt;
+                    &lt;/button&gt;
+                &lt;/div&gt;
+                &lt;div class="modal-body"&gt;
+                    &lt;p&gt;Hello&lt;/p&gt;
+                &lt;/div&gt;
+                &lt;div class="modal-footer"&gt;
+                    &lt;button type="button" class="btn btn-secondary" data-dismiss="modal"&gt;Close&lt;/button&gt;
+                &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+      `</span><span class="p">,</span>
 
-        <span class="na">link</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">scope</span><span class="p">,</span> <span class="nx">element</span><span class="p">){</span>
+      <span class="na">link</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">scope</span><span class="p">,</span> <span class="nx">element</span><span class="p">){</span>
 
-            <span class="nx">scope</span><span class="p">.</span><span class="nx">$on</span><span class="p">(</span><span class="dl">'</span><span class="s1">toggleModal</span><span class="dl">'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
-                <span class="nx">element</span><span class="p">.</span><span class="nx">modal</span><span class="p">()</span>
-            <span class="p">});</span>
-            
-            <span class="nx">scope</span><span class="p">.</span><span class="nx">toggle</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
-                <span class="nx">element</span><span class="p">.</span><span class="nx">modal</span><span class="p">(</span><span class="dl">'</span><span class="s1">toggle</span><span class="dl">'</span><span class="p">)</span>
-            <span class="p">};</span>
-        <span class="p">},</span>
+        <span class="nx">scope</span><span class="p">.</span><span class="nx">$on</span><span class="p">(</span><span class="dl">'</span><span class="s1">toggleModal</span><span class="dl">'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
+            <span class="nx">element</span><span class="p">.</span><span class="nx">modal</span><span class="p">()</span>
+        <span class="p">});</span>
+        
+        <span class="nx">scope</span><span class="p">.</span><span class="nx">toggle</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+            <span class="nx">element</span><span class="p">.</span><span class="nx">modal</span><span class="p">(</span><span class="dl">'</span><span class="s1">toggle</span><span class="dl">'</span><span class="p">)</span>
+        <span class="p">};</span>
+      <span class="p">},</span>
     <span class="p">}</span>
 <span class="p">});</span></code></pre></figure>
 
 <p>At the time glossing over the state-level hooks, which only provided the hooks <code class="highlighter-rouge">onEnter</code>, <code class="highlighter-rouge">onExit</code>, and <code class="highlighter-rouge">onRetain</code>, I came up with this hack:</p>
 
 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">const</span> <span class="nx">userControlPanelState</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">usercp</span><span class="dl">'</span><span class="p">,</span>
-    <span class="na">url</span><span class="p">:</span> <span class="dl">'</span><span class="s1">/user/cp</span><span class="dl">'</span><span class="p">,</span>
-    <span class="na">templateUrl</span><span class="p">:</span> <span class="dl">'</span><span class="s1">/views/usercp/usercp.html</span><span class="dl">'</span><span class="p">,</span>
-    <span class="na">controller</span><span class="p">:</span> <span class="dl">'</span><span class="s1">userControlPanelController as userCP</span><span class="dl">'</span><span class="p">,</span>
-    <span class="na">data</span><span class="p">:</span> <span class="p">{</span> <span class="na">requiresAuth</span><span class="p">:</span> <span class="kc">true</span> <span class="p">},</span>
-    <span class="na">params</span><span class="p">:</span> <span class="p">{</span> <span class="na">modal</span><span class="p">:</span> <span class="kc">false</span><span class="p">},</span>
-    <span class="na">onEnter</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$rootScope</span><span class="p">,</span> <span class="nx">$stateParams</span><span class="p">){</span>
-        <span class="k">if</span><span class="p">(</span><span class="nx">$stateParams</span><span class="p">.</span><span class="nx">modal</span><span class="p">){</span>
-            <span class="nx">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">$rootScope</span><span class="p">.</span><span class="nx">$broadcast</span><span class="p">(</span><span class="dl">'</span><span class="s1">toggleModal</span><span class="dl">'</span><span class="p">)</span> <span class="p">},</span> <span class="mi">0</span><span class="p">)</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+  <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">usercp</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="dl">'</span><span class="s1">/user/cp</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">templateUrl</span><span class="p">:</span> <span class="dl">'</span><span class="s1">/views/usercp/usercp.html</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">controller</span><span class="p">:</span> <span class="dl">'</span><span class="s1">userControlPanelController as userCP</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">data</span><span class="p">:</span> <span class="p">{</span> <span class="na">requiresAuth</span><span class="p">:</span> <span class="kc">true</span> <span class="p">},</span>
+  <span class="na">params</span><span class="p">:</span> <span class="p">{</span> <span class="na">modal</span><span class="p">:</span> <span class="kc">false</span><span class="p">},</span>
+  <span class="na">onEnter</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$rootScope</span><span class="p">,</span> <span class="nx">$stateParams</span><span class="p">){</span>
+      <span class="k">if</span><span class="p">(</span><span class="nx">$stateParams</span><span class="p">.</span><span class="nx">modal</span><span class="p">){</span>
+          <span class="nx">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">$rootScope</span><span class="p">.</span><span class="nx">$broadcast</span><span class="p">(</span><span class="dl">'</span><span class="s1">toggleModal</span><span class="dl">'</span><span class="p">)</span> <span class="p">},</span> <span class="mi">0</span><span class="p">)</span>
+      <span class="p">}</span>
+  <span class="p">}</span>
 <span class="p">};</span></code></pre></figure>
 
 <p>The idea is that I’m hooking to the <code class="highlighter-rouge">onEnter</code>, if the modal parameter is set to true I will broadcast a <code class="highlighter-rouge">toggleModal</code> event which the <code class="highlighter-rouge">exampleModal</code> directive will listen on and show the modal.</p>
@@ -145,14 +147,14 @@
 
   <span class="kd">const</span> <span class="nx">shouldRunTransitionCallbackCriteria</span> <span class="o">=</span> <span class="p">{</span>
     <span class="na">to</span><span class="p">:</span> <span class="p">(</span><span class="nx">state</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="nx">state</span><span class="p">.</span><span class="nx">name</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">usercp</span><span class="dl">'</span><span class="p">;</span>
-      <span class="p">}</span>
+      <span class="k">return</span> <span class="nx">state</span><span class="p">.</span><span class="nx">name</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">usercp</span><span class="dl">'</span><span class="p">;</span>
+    <span class="p">}</span>
   <span class="p">};</span>
 
   <span class="kd">function</span> <span class="nx">showModal</span><span class="p">(</span><span class="nx">transition</span><span class="p">){</span>
-      <span class="k">if</span><span class="p">(</span><span class="nx">transition</span><span class="p">.</span><span class="nx">params</span><span class="p">().</span><span class="nx">modal</span><span class="p">){</span>
-        <span class="nx">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="k">this</span><span class="p">.</span><span class="nx">$broadcast</span><span class="p">(</span><span class="dl">'</span><span class="s1">toggleModal</span><span class="dl">'</span><span class="p">)</span> <span class="p">},</span> <span class="mi">0</span><span class="p">);</span>
-      <span class="p">}</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">transition</span><span class="p">.</span><span class="nx">params</span><span class="p">().</span><span class="nx">modal</span><span class="p">){</span>
+      <span class="nx">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="k">this</span><span class="p">.</span><span class="nx">$broadcast</span><span class="p">(</span><span class="dl">'</span><span class="s1">toggleModal</span><span class="dl">'</span><span class="p">)</span> <span class="p">},</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="p">}</span>
   <span class="p">}</span>
 
   <span class="c1">// Register the "showModal" hook with the TransitionService</span>

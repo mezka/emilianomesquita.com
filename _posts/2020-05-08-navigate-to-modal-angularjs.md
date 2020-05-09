@@ -9,39 +9,41 @@ A while ago I found myself wanting to use `ui-router` to navigate to another vie
 
 {% highlight javascript %}
 angular.module('app')
-    .directive('exampleModal', function () {
+  .directive('exampleModal', function () {
     return {
-        restrict: 'E',
-        replace: true,
-        template: ` <div class="modal" tabindex="-1" role="dialog">
-                        <div class="modal-dialog modal-dialog-centered" role="document">
-                            <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title">Add new address</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <p>Hello</p>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            </div>
-                            </div>
-                        </div>
-                    </div> `,
+      restrict: 'E',
+      replace: true,
+      template: `  
+        <div class="modal" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add new address</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Hello</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+                </div>
+            </div>
+        </div>
+      `,
 
-        link: function(scope, element){
+      link: function(scope, element){
 
-            scope.$on('toggleModal', function(){
-                element.modal()
-            });
-            
-            scope.toggle = function(){
-                element.modal('toggle')
-            };
-        },
+        scope.$on('toggleModal', function(){
+            element.modal()
+        });
+        
+        scope.toggle = function(){
+            element.modal('toggle')
+        };
+      },
     }
 });
 {% endhighlight %}
@@ -50,17 +52,17 @@ At the time glossing over the state-level hooks, which only provided the hooks `
 
 {% highlight javascript %}
 const userControlPanelState = {
-    name: 'usercp',
-    url: '/user/cp',
-    templateUrl: '/views/usercp/usercp.html',
-    controller: 'userControlPanelController as userCP',
-    data: { requiresAuth: true },
-    params: { modal: false},
-    onEnter: function($rootScope, $stateParams){
-        if($stateParams.modal){
-            setTimeout(() => { $rootScope.$broadcast('toggleModal') }, 0)
-        }
-    }
+  name: 'usercp',
+  url: '/user/cp',
+  templateUrl: '/views/usercp/usercp.html',
+  controller: 'userControlPanelController as userCP',
+  data: { requiresAuth: true },
+  params: { modal: false},
+  onEnter: function($rootScope, $stateParams){
+      if($stateParams.modal){
+          setTimeout(() => { $rootScope.$broadcast('toggleModal') }, 0)
+      }
+  }
 };
 {% endhighlight %}
 
@@ -83,14 +85,14 @@ function modalRunBlock(transitionService, $rootScope) {
 
   const shouldRunTransitionCallbackCriteria = {
     to: (state) => {
-        return state.name === 'usercp';
-      }
+      return state.name === 'usercp';
+    }
   };
 
   function showModal(transition){
-      if(transition.params().modal){
-        setTimeout(() => { this.$broadcast('toggleModal') }, 0);
-      }
+    if(transition.params().modal){
+      setTimeout(() => { this.$broadcast('toggleModal') }, 0);
+    }
   }
 
   // Register the "showModal" hook with the TransitionService
