@@ -396,6 +396,10 @@ ul.social-buttons li a:hover, ul.social-buttons li a:focus, ul.social-buttons li
 
 .read-article-link:hover, .go-back-link:hover { color: #76abd9; }
 
+.blogpost-margin-y { margin-top: 35px; margin-bottom: 35px; }
+
+.blog-post { font-family: "Montserrat"; }
+
 @media (min-width: 767px) { #oneplus-video { width: 640px; height: 360px; } .portfolio-modal .modal-content { padding: 75px 0; } .portfolio-modal .modal-content .close-modal { width: 75px; height: 75px; } .portfolio-modal .modal-content .close-modal .lr { height: 75px; width: 1px; margin-left: 35px; } .portfolio-modal .modal-content .close-modal .lr .rl { height: 75px; width: 1px; } }
 
 ::-moz-selection { text-shadow: none; background: #fed136; }
