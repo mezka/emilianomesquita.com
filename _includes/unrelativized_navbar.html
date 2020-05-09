@@ -1,4 +1,10 @@
-<nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
+{%- if site.default_lang == site.active_lang -%}
+    {%- assign prepended_url = "" -%}
+{%- else -%}
+    {%- assign prepended_url = "/" | append:  site.active_lang  %}
+{%- endif -%}
+
+<nav id="internationalNav" class="navbar navbar-default navbar-custom navbar-fixed-top affix">
     <div class="container">
         <div class="navbar-header page-scroll">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -13,19 +19,19 @@
                     <a class="page-scroll" href="/blog">Blog</a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="#resume">Curriculum Vitae</a>
+                    <a class="page-scroll" href=" {{ prepended_url | append: '/#resume' }}">Curriculum Vitae</a>
                 </li>
                 <li class="hidden">
                     <a href="#page-top"></a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="#portfolio">Portfolio</a>
+                    <a class="page-scroll" href=" {{ prepended_url | append: '/#portfolio' }}">Portfolio</a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="#skills">{{ site.data.translations.navbar.skillsLink[page.lang]}}</a>
+                    <a class="page-scroll" href=" {{ prepended_url | append: '/#skills' }}">{{ site.data.translations.navbar.skillsLink[page.lang]}}</a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="#contact">{{ site.data.translations.navbar.contactLink[page.lang]}}</a>
+                    <a class="page-scroll" href=" {{ prepended_url | append: '/#contact' }}">{{ site.data.translations.navbar.contactLink[page.lang]}}</a>
                 </li>
             </ul>
         </div>

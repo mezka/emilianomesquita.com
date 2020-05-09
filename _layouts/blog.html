@@ -1,0 +1,30 @@
+---
+layout: default
+---
+
+{% include unrelativized_navbar.html %}
+
+{% include header_blog.html %}
+
+<div class="bg-light-gray">
+    <div class="container">
+        {% for post in site.posts %}
+        <div class="blog-post bg-warning" style="padding: 20px; margin: 50px 0px;">
+            <h2 class="blog-post-title">
+                {{ post.title }}
+            </h2>
+            <p class="blog-post-meta">
+                {{ post.date | date: "%D" }} by {{ site.author.name }} {{site.author.surname}}
+            </p>
+            <hr>
+            <p>
+                {{ post.excerpt }}
+            </p>
+            <p> 
+                <a class="read-article-link" href="{{ post.permalink }}">Read the whole article ...</a>
+            </p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% include footer.html %}

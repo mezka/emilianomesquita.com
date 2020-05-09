@@ -3,6 +3,7 @@
 
 @import "variables.scss";
 @import "mixins.scss";
+@import "syntax_highlighting.scss";
 
 // Global Components
 
@@ -182,7 +183,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 header {
-    background-image: url('{{ site.baseurl }}/img/ducks-color.jpg');
     background-repeat: no-repeat;
     background-attachment: scroll;
     background-position: center center;
@@ -215,6 +215,14 @@ header {
                 color: white;
             }
         }
+}
+
+.header-background-ducks{
+    background-image: url('{{ site.baseurl }}/img/ducks-color.jpg');
+}
+
+.header-background-computer{
+    background-image: url('{{ site.baseurl }}/img/computer.jpg');
 }
 
 @media(min-width:768px) {
@@ -528,6 +536,17 @@ ul.social-buttons {
     .modal-backdrop {
         opacity: 0;
         display: none;
+    }
+}
+
+//Blog index section
+
+.read-article-link, .go-back-link {
+
+    color: $light-blue;
+
+    &:hover{
+        color: $lighter-blue;
     }
 }
 

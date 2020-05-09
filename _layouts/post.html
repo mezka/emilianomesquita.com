@@ -1,0 +1,25 @@
+---
+layout: unrelativized_page
+---
+
+{% include header_blog.html %}
+
+<div class="bg-light-gray">
+    <div class="container">
+        <div class="blog-post bg-warning" style="padding: 20px 75px; margin: 50px 0px;">
+            <h2 class="blog-post-title">
+                {{ page.title }}
+            </h2>
+            <p class="blog-post-meta">
+                {{ page.date | date: "%D" }} by {{ site.author.name }} {{site.author.surname}}
+            </p>
+            <hr>
+            <p>
+                {{ content }}
+            </p>
+            <hr>
+            <a class="go-back-link" href="/blog">Go back</a>
+        </div>
+    </div>
+</div>
+

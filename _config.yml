@@ -1,5 +1,6 @@
-author_name: Emiliano
-author_surname: Mesquita
+author:
+  name: Emiliano
+  surname: Mesquita
 email: emiliano_mesquita@hotmail.com
 description: Desarrollador web en Buenos Aires, Argentina.
 baseurl: "" # the subpath of your site, e.g. /blog
@@ -23,7 +24,6 @@ collections:
   - portfolios
 sass:
   sourcemap: never #Workaround needed to prevent polyglot plugin from breaking css
-
 
 # Exclude from processing.
 # The following items will not be processed, by default.
