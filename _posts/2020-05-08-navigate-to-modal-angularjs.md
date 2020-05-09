@@ -74,7 +74,7 @@ Programatically navigating to the modal from another controller or service would
 state.go('usercp', { modal: true });
 {% endhighlight %}
 
-All in all this is a hack but it works perfectly, although I while writing this I realized that there's another "endorsed" way to achieve the same thing:
+This is a hack but it works perfectly, although I while writing this I realized that there's another "endorsed" way to achieve the same thing:
 
 {% highlight javascript %}
 modalRunBlock.$inject = ['$transitions', '$rootScope'];
@@ -103,4 +103,4 @@ app.run(modalRunBlock);
 
 I think this would be "cannon" way of achieving this mainly because it at least is hooking to the last transition hook that is activated, eventhough we still need the `setTimeout` because the `exampleModal` directive and the `scope.$on('toggleModal')` event listener have not loaded yet.
 
-All in all I like my solution and will keep it as is, hope this gets indexed by search engines and it helps someone.
+All in all like my solution and will keep it as is, hope this gets indexed by search engines and it helps someone.
