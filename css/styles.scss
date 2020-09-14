@@ -421,6 +421,9 @@ section#contact {
     .text-danger {
         color: $theme-danger;
     }
+    .g-recaptcha  > * {
+        margin: 0 auto;
+    }
 }
 
 // Footer

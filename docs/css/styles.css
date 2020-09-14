@@ -358,6 +358,8 @@ section#contact ::placeholder { font-family: "Montserrat", "Helvetica Neue", Hel
 
 section#contact .text-danger { color: #e74c3c; }
 
+section#contact .g-recaptcha > * { margin: 0 auto; }
+
 footer { padding: 25px 0; text-align: center; }
 
 footer .thanks { line-height: 40px; font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif; text-transform: uppercase; text-transform: none; }
